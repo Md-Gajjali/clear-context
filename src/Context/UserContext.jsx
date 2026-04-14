@@ -9,13 +9,15 @@ export const User = createContext()
     useEffect(()=>{
         fetch('https://dummyjson.com/users')
         .then(res => res.json())
-        .then();
+        .then((data)=> setUser(data.users));
     },[])
 
+
+
    return (
-     <div>
-       
-     </div>
+     <User value={{user}}>
+        {children}
+     </User>
    )
  }
  
