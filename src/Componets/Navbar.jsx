@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeProvider } from '../Context/ThemeContext'
 
 const Navbar = () => {
+    const {theme,toggle}= useContext(ThemeProvider)
   return (
         <nav className="bg-neutral-primary fixed left-0 top-0 right-0 z-20 border-b border-default">
         <div className="container mx-auto max-w-screen-xl flex flex-wrap items-center justify-between p-4">
@@ -23,12 +25,10 @@ const Navbar = () => {
                 <li>
                 <a href="#" className="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Services</a>
                 </li>
-                <li>
-                <a href="#" className="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Pricing</a>
-                </li>
-                <li>
-                <a href="#" className="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Contact</a>
-                </li>
+                <div>
+                    <button className='dark:text-white' onClick={toggle}>{theme}</button>
+                </div>
+                
             </ul>
             </div>
         </div>
