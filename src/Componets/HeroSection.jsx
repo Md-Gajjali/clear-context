@@ -16,6 +16,7 @@ const HeroSection = () => {
             user.map((item)=>{
                 return(
                     <UserCard 
+                      key={item.id}
                       name={item.firstName}
                       email={item.email}
                       number={item.phone}

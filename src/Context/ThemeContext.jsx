@@ -14,13 +14,12 @@ const ThemeContext = ({children}) => {
             html.classList.add("dark")
         } else {
             html.classList.remove("dark")
-            
         }
     }
   return (
-    <div>
-      
-    </div>
+    <ThemeProvider value={{theme ,toggle }}>
+        {children}
+    </ThemeProvider>
   )
 }
 
