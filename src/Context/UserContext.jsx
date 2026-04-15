@@ -1,9 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 
-export const User = createContext()
+export const UserContext = createContext()
 
  
  const UserContext = ({children}) => {
+
     const [user,setUser]=useState([ ])
 
     useEffect(()=>{
@@ -15,9 +16,9 @@ export const User = createContext()
 
 
    return (
-     <User value={{user}}>
+     <UserContext value={{user}}>
         {children}
-     </User>
+     </UserContext>
    )
  }
  
