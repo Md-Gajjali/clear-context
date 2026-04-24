@@ -1,24 +1,35 @@
+import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
-export const UserContext = createContext()
+export const User = createContext()
 
  
- const UserContext = ({children}) => {
+ const UserContext = ({ children }) => {
 
     const [user,setUser]=useState([ ])
+    const [error, setError] = useState()
+    console.log(user)
+
 
     useEffect(()=>{
-        fetch('https://dummyjson.com/users')
-        .then(res => res.json())
-        .then((data)=> setUser(data.users));
+        async function getUsers () {
+        try {
+          const res = await axios.get('https://dummyjson.com/use')
+          setUser(res.data.users)
+        } catch (error) {
+          console.log("Error fetching users:", error)
+        }
+      }
+      getUsers()
+        
     },[])
 
 
 
    return (
-     <UserContext value={{user}}>
+     <User value={{user}}>
         {children}
-     </UserContext>
+     </User>
    )
  }
  
